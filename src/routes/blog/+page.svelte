@@ -1,1 +1,5 @@
-<h2>blog</h2>
+<script>
+  import Blog from "./../../lib/Blog.svelte";
+</script>
+
+<Blog />

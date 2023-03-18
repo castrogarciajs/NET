@@ -1,1 +1,5 @@
-<h2>form</h2>
+<script>
+  import Form from "./../../lib/Form.svelte";
+</script>
+
+<Form />

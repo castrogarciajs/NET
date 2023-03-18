@@ -1,4 +1,5 @@
-<nav>
-  <a href="/">Home</a>
-  <a href="/blog">New Page</a>
-</nav>
+<script lang="ts">
+  import Home from "./../lib/Home.svelte";
+</script>
+
+<Home />
