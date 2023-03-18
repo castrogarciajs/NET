@@ -1,5 +1,1 @@
-<script>
-  import Form from "./../../lib/Form.svelte";
-</script>
-
-<Form />
+<h2>forms</h2>

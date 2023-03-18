@@ -1,7 +1,7 @@
 <script lang="ts">
-  export let nameButton: string, buttonCss: string, toNavigation: () => void;
+  export let nameButton: string, buttonCss: string, path: string;
 </script>
 
-<button class={buttonCss} on:click={toNavigation}>
-  {nameButton}
+<button class={buttonCss}>
+  <a href={path}>{nameButton}</a>
 </button>
