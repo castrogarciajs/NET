@@ -1,16 +1,9 @@
 <script lang="ts">
-  /** @Firebase module */
-  import { initializeApp } from "firebase/app";
-  import { firebaseConfig } from "../firebase.config";
-
-  /**@tools svelte*/
 
   /** @Components */
   import Button from "../components/Button.svelte";
   import Title from "../components/Title.svelte";
 
-  /** @app */
-  export const app = initializeApp(firebaseConfig);
   let nameButton = "Welcome";
 </script>
 
@@ -20,6 +13,12 @@
 </div>
 
 <style>
+  /**
+      #2F2E41,
+      #7B6D9D,
+      #F2C57C,
+      #F27E7E,
+  */
   .container-svelte {
     background-image: linear-gradient(
       to bottom right,
