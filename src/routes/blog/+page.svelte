@@ -7,14 +7,18 @@
   realTimeDate((querySnapshot) => {
     notes = [];
     querySnapshot.forEach((doc) => {
-      const { title, description } = doc.data();
-      notes.push({ id: doc.id, title, description });
+      const { title, description, image } = doc.data();
+      notes.push({ id: doc.id, title, description, image });
     });
   });
 </script>
 
 <div>
   {#each notes as note}
-    <NetCard title={note.title} description={note.description} />
+    <NetCard
+      title={note.title}
+      description={note.description}
+      image={note.image}
+    />
   {/each}
 </div>

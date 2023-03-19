@@ -9,8 +9,8 @@ import {
   QuerySnapshot,
 } from "firebase/firestore";
 
-export const saveNotes = (title: string, description: string) =>
-  addDoc(collection(firestore, "notes"), { title, description });
+export const saveNotes = (title: string, description: string, image: string) =>
+  addDoc(collection(firestore, "notes"), { title, description, image });
 
 export const getNotes = () => getDocs(collection(firestore, "notes"));
 
