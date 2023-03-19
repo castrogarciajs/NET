@@ -19,6 +19,7 @@
       title={note.title}
       description={note.description}
       image={note.image}
+      id={note.id}
     />
   {/each}
 </div>

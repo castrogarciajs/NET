@@ -1,1 +1,0 @@
-<h2>error de blog</h2>
