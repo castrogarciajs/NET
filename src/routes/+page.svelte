@@ -9,7 +9,7 @@
 
 <div class="container-svelte">
   <Title nameApp="Svelte App" />
-  <Button {nameButton} path="/blog" />
+  <Button {nameButton} path="/form" />
 </div>
 
 <style>
