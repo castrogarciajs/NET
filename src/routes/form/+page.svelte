@@ -40,6 +40,7 @@
       <button type="submit">Guardar</button>
     </form>
   </div>
+  <a href="/blog">blog</a>
 </section>
 
 <style>
