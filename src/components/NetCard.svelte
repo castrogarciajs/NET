@@ -1,17 +1,28 @@
 <script lang="ts">
   import { deleteNote } from "../firestore";
+  import { goto } from "$app/navigation";
+  import type { NOTE } from "../interfaces/notes";
 
   export let title: string;
   export let description: string;
   export let image: string;
   export let id: string;
 
-  let idCard: HTMLButtonElement;
+  let buttonDelete: HTMLButtonElement;
+  let buttonUpdate: HTMLButtonElement;
+
   const handleClickDelete = async () => {
-    const { id } = idCard.dataset;
+    const { id } = buttonDelete.dataset;
     if (id) {
       await deleteNote(id);
     }
+  };
+
+  const handleClickUpdate = async () => {
+    const { id } = buttonUpdate.dataset;
+    const url = `/form?id=${id}&title=${title}&description=${description}&image=${image}`;
+
+    await goto(url);
   };
 </script>
 
@@ -28,7 +39,10 @@
       data-id={id}
       class="card-button-delete"
       on:click={handleClickDelete}
-      bind:this={idCard}>Delete</button
+      bind:this={buttonDelete}>Delete</button
+    >
+    <button data-id={id} on:click={handleClickUpdate} bind:this={buttonUpdate}
+      >Update</button
     >
   </div>
 </div>
