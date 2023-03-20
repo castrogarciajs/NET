@@ -1,9 +1,11 @@
 <script lang="ts">
+  /**@module */
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
   import { saveNotes, updateNote } from "../../firestore";
   import { uploadFile } from "./../../storage";
 
+  /**@htmlElement esta forma de definir elementos en svelte me encanta luego puedo referirme a ellos usando bind:this esta palabra reservada es una directiva de svelte para hacer referencia a un elemento html en especifico*/
   let form: HTMLFormElement;
   let title: HTMLInputElement;
   let description: HTMLTextAreaElement;
@@ -11,7 +13,9 @@
   let image: HTMLInputElement;
   let id: string;
 
+  /**@functionOn esta funcion es bastante interesante su funcionalidad es renderiza al dectectar un refresh en el navegador mostarr el contenido dentro de ella */
   onMount(() => {
+    /**@instance se realiza una isntancia de la clase URLSearchParams para obtener todos los parametro ingresado en la url*/
     const params = new URLSearchParams(window.location.search);
     const getParams = {
       id: params.get("id"),
@@ -19,6 +23,7 @@
       description: params.get("description"),
       image: params.get("image"),
     };
+    /**@true si existen los parametros deben ser obligaorio todos modifico el valor de cada elemento html para tenerlos en el formulario*/
     if (
       getParams.id &&
       getParams.title &&
@@ -30,20 +35,30 @@
       description.value = getParams.description;
     }
   });
+
+  /**
+   * @param event Funcion encargada de manejar el evento submit ejecuta toda la logica
+   */
   const handleSubmit = async (event: Event) => {
     try {
+      /**@refresh se cancela en refresh del navegador */
       event.preventDefault();
+
+      /**@value se almacena el valor de cada elemento html*/
       const titleValue = title.value;
       const descriptionValue = description.value;
       const file = image.files?.[0];
       let imageURL = "";
 
+      /**@verfiqued se realiza una condicional porque todos los datos deben de exisitir*/
       if (!titleValue && !descriptionValue && !file)
         return (message.textContent = "Ingresa valores validos");
 
+      /**@verifiqued se verifica que el archivo ingresado en el input se instancia de File ya que no puede llegar siendo undefined */
       if (file instanceof File) {
         imageURL = await uploadFile(file);
       }
+      /**@verifiqued si existe el id actulizo los datos existente del formulario*/
       if (id) {
         await updateNote(id, {
           id,
@@ -52,12 +67,15 @@
           image: imageURL,
         });
 
+        /**@route navego nuevamente al blog despues de actulizar los datos*/
         await goto("/blog");
       } else {
+        /**@save guardo en firestore los datos ingresado y limpio el formulario*/
         await saveNotes(titleValue, descriptionValue, imageURL);
         form.reset();
       }
 
+      /**@message mensaje de error o de advertencia*/
       message.textContent = "";
     } catch (error) {
       console.log(error);
@@ -78,7 +96,6 @@
         bind:this={description}
         rows={3}
       />
-
       <button type="submit">{id ? "update" : "guardar"}</button>
     </form>
   </div>
