@@ -3,8 +3,9 @@
   /** @Components */
   import Button from "../components/Button.svelte";
   import Title from "../components/Title.svelte";
-
-  let nameButton = "Welcome";
+  
+  /** * @TITLE titulo inicial de la app*/
+  let nameButton = "WELCOME";
 </script>
 
 <div class="container-svelte">
