@@ -1,3 +1,4 @@
+/**@firestore */
 import { firestore } from "./firebase";
 import {
   collection,
@@ -10,10 +11,22 @@ import {
 } from "firebase/firestore";
 import type { NOTE } from "./interfaces/notes";
 
+/**
+ * 
+ * @param callback onSub
+ * @returns note
+ */
 export const getNote = (
   callback: (querySnapshot: QuerySnapshot) => void
 ) => onSnapshot(collection(firestore, "notes"), callback);
 
+/**
+ * 
+ * @param title title note
+ * @param description description note
+ * @param image image note
+ * @returns note
+ */
 export const saveNotes = (title: string, description: string, image: string) =>
   addDoc(collection(firestore, "notes"), { title, description, image });
 
