@@ -1,7 +1,6 @@
 <script lang="ts">
   import { deleteNote } from "../firestore";
   import { goto } from "$app/navigation";
-  import type { NOTE } from "../interfaces/notes";
 
   export let title: string;
   export let description: string;
@@ -41,8 +40,11 @@
       on:click={handleClickDelete}
       bind:this={buttonDelete}>Delete</button
     >
-    <button data-id={id} on:click={handleClickUpdate} bind:this={buttonUpdate}
-      >Update</button
+    <button
+      class="card-button-update"
+      data-id={id}
+      on:click={handleClickUpdate}
+      bind:this={buttonUpdate}>Update</button
     >
   </div>
 </div>

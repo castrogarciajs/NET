@@ -10,7 +10,7 @@
   let message: HTMLSpanElement;
   let image: HTMLInputElement;
   let id: string;
-  
+
   onMount(() => {
     const params = new URLSearchParams(window.location.search);
     const getParams = {
@@ -46,30 +46,30 @@
       }
       if (id) {
         await updateNote(id, {
+          id,
           title: titleValue,
           description: descriptionValue,
           image: imageURL,
         });
-      } else {
-        await saveNotes(titleValue, descriptionValue, imageURL);
-      }
-      if (id) {
+
         await goto("/blog");
       } else {
-        message.textContent = "";
+        await saveNotes(titleValue, descriptionValue, imageURL);
         form.reset();
       }
+
+      message.textContent = "";
     } catch (error) {
       console.log(error);
     }
   };
 </script>
 
-<section>
-  <div>
+<section class="form-container-section">
+  <div class="message">
     <span bind:this={message} />
   </div>
-  <div>
+  <div class="container-form">
     <form on:submit={handleSubmit} bind:this={form}>
       <input type="text" placeholder="title the note" bind:this={title} />
       <input type="file" bind:this={image} required />

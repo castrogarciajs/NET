@@ -10,12 +10,12 @@ import {
 } from "firebase/firestore";
 import type { NOTE } from "./interfaces/notes";
 
-export const saveNotes = (title: string, description: string, image: string) =>
-  addDoc(collection(firestore, "notes"), { title, description, image });
-
-export const realTimeDate = (
+export const getNote = (
   callback: (querySnapshot: QuerySnapshot) => void
 ) => onSnapshot(collection(firestore, "notes"), callback);
+
+export const saveNotes = (title: string, description: string, image: string) =>
+  addDoc(collection(firestore, "notes"), { title, description, image });
 
 export const deleteNote = (id: string) =>
   deleteDoc(doc(firestore, "notes", id));
