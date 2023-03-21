@@ -70,7 +70,6 @@
           description: descriptionValue,
           image: imageURL,
         });
-
         /**@route navego nuevamente al blog despues de actulizar los datos*/
         await goto("/blog");
       } else {
@@ -95,7 +94,7 @@
 <Navbar />
 <section class="form-container-section">
   <div class="message">
-    <span bind:this={message} />
+    <span bind:this={message} class="message" />
   </div>
   <div class="container-form">
     <form on:submit={handleSubmit} bind:this={form}>
@@ -182,5 +181,9 @@
 
   button[type="submit"]:hover {
     background-color: #1e1e1e;
+  }
+  .message {
+    font-size: 3rem;
+    color: #ff0000;
   }
 </style>
