@@ -99,7 +99,6 @@
       <button type="submit">{id ? "update" : "guardar"}</button>
     </form>
   </div>
-  <a href="/blog">blog</a>
 </section>
 
 <style>
