@@ -13,14 +13,8 @@
 </div>
 
 <style>
-  :root {
-    --color-principle: #343434;
-    --color-line: #ececec;
-    --color-bg: #bbd59f;
-    --font-char: Arial, Helvetica, sans-serif;
-  }
   .container-svelte {
-    background: linear-gradient(to bottom, var(--color-bg), var(--color-principle));
+    background: linear-gradient(to bottom, #bbd59f, #343434);
     height: 100vh;
     display: flex;
     flex-direction: column;

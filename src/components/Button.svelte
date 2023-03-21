@@ -8,9 +8,9 @@
 
 <style>
   .button-navigation {
-    background-color: var(--color-bg);
-    border: 2px solid var(--color-line);
-    color: var(--color-principle);
+    background-color: #bbd59f;
+    border: 2px solid #ececec;
+    color: #343434;
     cursor: pointer;
     display: inline-block;
     font-size: 1rem;
@@ -22,16 +22,16 @@
   }
 
   .button-navigation:hover {
-    background-color: var(--color-principle);
-    color: var(--color-bg);
+    background-color: #343434;
+    color: #bbd59f;
   }
 
   .link-navigation {
-    color: var(--color-principle);
+    color: #343434;
     text-decoration: none;
   }
 
   .link-navigation:hover {
-    color: var(--color-bg);
+    color: #bbd59f;
   }
 </style>

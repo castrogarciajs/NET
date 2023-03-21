@@ -108,7 +108,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: var(--color-bg);
+    background-color: #bbd59f;
   }
 
   .container-form {
@@ -131,14 +131,14 @@
     margin-bottom: 20px;
     border-radius: 5px;
     border: none;
-    background-color: var(--color-line);
-    color: var(--color-principle);
+    background-color: #ececec;
+    color: #343434;
   }
 
   input[type="text"]:focus,
   textarea:focus {
     outline: none;
-    box-shadow: 0 0 0 2px var(--color-principle);
+    box-shadow: 0 0 0 2px #343434;
   }
 
   input[type="file"] {
@@ -150,7 +150,7 @@
     margin-bottom: 20px;
     padding: 10px 20px;
     border-radius: 5px;
-    background-color: var(--color-principle);
+    background-color: #343434;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -163,7 +163,7 @@
   button[type="submit"] {
     padding: 10px 20px;
     border-radius: 5px;
-    background-color: var(--color-principle);
+    background-color: #343434;
     color: white;
     border: none;
     cursor: pointer;
