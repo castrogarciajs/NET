@@ -17,7 +17,7 @@
   });
 </script>
 
-<div>
+<div class="container-card">
   {#each notes as note}
     <Card
       title={note.title}
@@ -27,3 +27,10 @@
     />
   {/each}
 </div>
+
+<style>
+  .container-card {
+    background-color: #bbd59f;
+    height: 100vh;
+  }
+</style>

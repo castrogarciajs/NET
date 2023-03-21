@@ -48,3 +48,86 @@
     >
   </div>
 </div>
+
+<style>
+  .card {
+    display: inline-block;
+    margin: 10px;
+    width: 300px;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-line);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-header {
+    position: relative;
+    padding-top: 60%;
+  }
+
+  .card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  .card-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #343434;
+  }
+
+  .card-description {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #343434;
+  }
+
+  .card-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-top: 1px solid #ececec;
+  }
+
+  .card-button button {
+    background-color: #bbd59f;
+    color: #343434;
+    border: 1px solid #343434;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+
+  .card-button button:hover {
+    background-color: var(--color-principle);
+    color: var(--color-bg);
+  }
+  .card-button-delete:hover {
+    background-color: #ff0000;
+    color: #ffffff;
+  }
+  .card-button-update:hover {
+    background-color: #ffff00;
+    color: #000000;
+  }
+</style>
