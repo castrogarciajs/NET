@@ -4,7 +4,6 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 /**@initialStorage */
 const storageRef = ref(storage, "static");
-
 /**
  *
  * @param file se pasa la url de la imagen
@@ -18,7 +17,7 @@ export const uploadFile = async (file: File) => {
   const fileRef = ref(storageRef, file.name);
 
   /**
-   * @uploadTask esta constante es la encargada de resumir el archivo al momento de subirse 
+   * @uploadTask esta constante es la encargada de resumir el archivo al momento de subirse
    */
   const uploadTask = uploadBytesResumable(fileRef, file);
 
