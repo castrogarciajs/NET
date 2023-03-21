@@ -21,6 +21,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"firebase": "^9.18.0"
+		"firebase": "^9.18.0",
+		"sweetalert2": "^11.7.3"
 	}
 }

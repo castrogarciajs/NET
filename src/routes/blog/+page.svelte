@@ -2,6 +2,7 @@
   /**@module */
   import { getNote } from "../../firestore";
   import Card from "../../components/Card.svelte";
+  import Navbar from "../../components/Nav.svelte";
   import type { NOTE } from "../../interfaces/notes";
 
   /**@array este array sera el encargado de obtener cada nota*/
@@ -17,6 +18,7 @@
   });
 </script>
 
+<Navbar />
 <div class="container-card">
   {#each notes as note}
     <Card
@@ -31,6 +33,5 @@
 <style>
   .container-card {
     background-color: #bbd59f;
-    height: 100vh;
   }
 </style>

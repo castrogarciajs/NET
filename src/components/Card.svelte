@@ -54,8 +54,8 @@
     display: inline-block;
     margin: 10px;
     width: 300px;
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-line);
+    background-color: #bbd59f;
+    border: 1px solid #ececec;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
@@ -90,6 +90,7 @@
     font-size: 24px;
     font-weight: bold;
     color: #343434;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   .card-description {
@@ -97,6 +98,7 @@
     font-size: 16px;
     line-height: 1.5;
     color: #343434;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   .card-button {
@@ -118,10 +120,6 @@
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   }
 
-  .card-button button:hover {
-    background-color: var(--color-principle);
-    color: var(--color-bg);
-  }
   .card-button-delete:hover {
     background-color: #ff0000;
     color: #ffffff;
