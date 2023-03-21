@@ -2,8 +2,10 @@
   /**@module */
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
+  import Swal from "sweetalert2";
   import { saveNotes, updateNote } from "../../firestore";
   import { uploadFile } from "./../../storage";
+  import Navbar from "../../components/Nav.svelte";
 
   /**@htmlElement esta forma de definir elementos en svelte me encanta luego puedo referirme a ellos usando bind:this esta palabra reservada es una directiva de svelte para hacer referencia a un elemento html en especifico*/
   let form: HTMLFormElement;
@@ -72,6 +74,11 @@
       } else {
         /**@save guardo en firestore los datos ingresado y limpio el formulario*/
         await saveNotes(titleValue, descriptionValue, imageURL);
+        Swal.fire(
+          "Your note has been saved successfully !",
+          "You clicked the button!",
+          "success"
+        );
         form.reset();
       }
 
@@ -83,6 +90,7 @@
   };
 </script>
 
+<Navbar />
 <section class="form-container-section">
   <div class="message">
     <span bind:this={message} />
@@ -107,7 +115,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 91vh;
     background-color: #bbd59f;
   }
 

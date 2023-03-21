@@ -7,7 +7,7 @@
 <style>
   .title-svelte {
     color: #343434;
-    font-size: 8rem;
+    font-size: 8.2rem;
     font-weight: bold;
     text-align: center;
     transition: font-size 0.2s ease-in-out;
