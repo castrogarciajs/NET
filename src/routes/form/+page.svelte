@@ -90,7 +90,7 @@
   <div class="container-form">
     <form on:submit={handleSubmit} bind:this={form}>
       <input type="text" placeholder="title the note" bind:this={title} />
-      <input type="file" bind:this={image} required />
+      <input type="file" bind:this={image} />
       <textarea
         placeholder="description the note"
         bind:this={description}
@@ -102,4 +102,75 @@
 </section>
 
 <style>
+  .form-container-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--color-bg);
+  }
+
+  .container-form {
+    background-color: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--color-line);
+    color: var(--color-principle);
+  }
+
+  input[type="text"]:focus,
+  textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-principle);
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  input[type="file"] {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--color-principle);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  input[type="file"] {
+    background-color: #1e1e1e;
+  }
+
+  button[type="submit"] {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--color-principle);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #1e1e1e;
+  }
 </style>
