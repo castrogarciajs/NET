@@ -29,6 +29,8 @@ export const uploadFile = async (file: File) => {
     (snapshot) => (snapshot.bytesTransferred / snapshot.totalBytes) * 100,
     (error) => error
   );
+  /**@await se espera que la imagen cargue por completo */
+  await uploadTask;
   /**
    * @image esta seria ya la url subida en la nube de firebase , para esto nos ayuda la funcion getDownLoadURL()
    */
