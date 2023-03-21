@@ -57,7 +57,9 @@
         return (message.textContent = "Ingresa valores validos");
 
       /**@verifiqued se verifica que el archivo ingresado en el input se instancia de File ya que no puede llegar siendo undefined */
-      if (file instanceof File) {
+      if (!file) {
+        return;
+      } else {
         imageURL = await uploadFile(file);
       }
       /**@verifiqued si existe el id actulizo los datos existente del formulario*/
