@@ -1,6 +1,7 @@
 <script lang="ts">
   import { deleteNote } from "../firestore";
   import { goto } from "$app/navigation";
+  import { auth } from "../firebase";
 
   export let title: string;
   export let description: string;
@@ -24,6 +25,7 @@
     await goto(url);
   };
 </script>
+
 
 <div class="card">
   <div class="card-header">
