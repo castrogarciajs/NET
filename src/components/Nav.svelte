@@ -1,9 +1,10 @@
 <script lang="ts">
   import { logOut } from "../auth";
+  import { auth } from "../firebase";
 
   const handleClick = async () => {
-    await logOut
-  }
+    await logOut;
+  };
 </script>
 
 <nav class="navbar-net">
@@ -15,6 +16,15 @@
     <a href="/form" class="nav">Add note</a>
     <a href="/blog" class="nav">Notes</a>
     <a href="/" class="nav" on:click={handleClick}>Sing Out</a>
+    <span class="nav">
+      <img
+        class="profile"
+        src={auth.currentUser?.photoURL
+          ? auth.currentUser?.photoURL
+          : "https://i.postimg.cc/0Ny2S1dr/vector-de-perfil-avatar-predeterminado-foto-usuario-medios-sociales-icono-183042379.jpg"}
+        alt={auth.currentUser?.displayName}
+      />
+    </span>
   </div>
 </nav>
 
@@ -53,5 +63,9 @@
   .nav:hover {
     color: #bbd59f;
     border-color: #bbd59f;
+  }
+  .profile {
+    width: 50px;
+    border-radius: 50%;
   }
 </style>
