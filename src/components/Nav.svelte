@@ -1,4 +1,10 @@
-<script></script>
+<script lang="ts">
+  import { logOut } from "../auth";
+
+  const handleClick = async () => {
+    await logOut
+  }
+</script>
 
 <nav class="navbar-net">
   <div>
@@ -8,6 +14,7 @@
     <a href="/" class="nav">Home</a>
     <a href="/form" class="nav">Add note</a>
     <a href="/blog" class="nav">Notes</a>
+    <a href="/" class="nav" on:click={handleClick}>Sing Out</a>
   </div>
 </nav>
 

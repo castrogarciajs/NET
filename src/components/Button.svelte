@@ -1,9 +1,19 @@
 <script lang="ts">
-  export let nameButton: string, path: string;
+  import { signInWithPopup } from "firebase/auth";
+  import { auth } from "../firebase";
+  import { provider } from "../auth";
+  import { goto } from "$app/navigation";
+
+  const handleSing = async () => {
+    await signInWithPopup(auth, provider);
+    await goto("/form")
+  };
+
+  export let nameButton: string;
 </script>
 
-<button class="button-navigation">
-  <a href={path} class="link-navigation">{nameButton}</a>
+<button class="button-navigation" on:click={handleSing}>
+  {nameButton}
 </button>
 
 <style>
@@ -23,15 +33,6 @@
 
   .button-navigation:hover {
     background-color: #343434;
-    color: #bbd59f;
-  }
-
-  .link-navigation {
-    color: #343434;
-    text-decoration: none;
-  }
-
-  .link-navigation:hover {
     color: #bbd59f;
   }
 </style>

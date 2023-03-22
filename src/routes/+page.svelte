@@ -4,12 +4,12 @@
   import Title from "../components/Title.svelte";
 
   /** * @TITLE titulo inicial de la app*/
-  let nameButton = "GET STARTED";
+  let nameButton = "Sing With Google";
 </script>
 
 <div class="container-svelte">
   <Title nameApp="NET" />
-  <Button {nameButton} path="/form" />
+  <Button {nameButton}/>
 </div>
 
 <style>
