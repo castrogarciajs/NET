@@ -1,6 +1,7 @@
 <script lang="ts">
   /**@module */
   import { onMount } from "svelte";
+  import { auth } from "../../firebase";
   import { goto } from "$app/navigation";
   import Swal from "sweetalert2";
   import { saveNotes, updateNote } from "../../firestore";
@@ -17,6 +18,9 @@
 
   /**@functionOn esta funcion es bastante interesante su funcionalidad es renderiza al dectectar un refresh en el navegador mostarr el contenido dentro de ella */
   onMount(() => {
+    if (!auth.currentUser) {
+      goto("/");
+    }
     /**@instance se realiza una isntancia de la clase URLSearchParams para obtener todos los parametro ingresado en la url*/
     const params = new URLSearchParams(window.location.search);
     const getParams = {
@@ -37,7 +41,7 @@
       description.value = getParams.description;
     }
   });
-
+  console.log(auth.currentUser);
   /**
    * @param event Funcion encargada de manejar el evento submit ejecuta toda la logica
    */
@@ -119,7 +123,6 @@
     min-height: 91vh;
     background-color: #bbd59f;
   }
-
   .container-form {
     background-color: white;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);

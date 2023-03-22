@@ -1,10 +1,18 @@
 <script lang="ts">
   /**@module */
   import { getNote } from "../../firestore";
+  import { auth } from "../../firebase";
+  import { goto } from "$app/navigation";
+  import { onMount } from "svelte";
   import Card from "../../components/Card.svelte";
   import Navbar from "../../components/Nav.svelte";
   import type { NOTE } from "../../interfaces/notes";
 
+  onMount(() => {
+    if (!auth.currentUser) {
+      goto("/");
+    }
+  });
   /**@array este array sera el encargado de obtener cada nota*/
   let notes: Array<NOTE> = [];
   getNote((querySnapshot) => {
