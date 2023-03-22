@@ -97,6 +97,7 @@
 
 <Navbar />
 <section class="form-container-section">
+  <h1 class="name-profile">Welcome {auth.currentUser?.displayName}</h1>
   <div class="message">
     <span bind:this={message} class="message" />
   </div>
@@ -135,7 +136,10 @@
     flex-direction: column;
     align-items: center;
   }
-
+  .name-profile {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
   input[type="text"],
   textarea {
     width: 100%;
