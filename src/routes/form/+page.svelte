@@ -41,7 +41,6 @@
       description.value = getParams.description;
     }
   });
-  console.log(auth.currentUser);
   /**
    * @param event Funcion encargada de manejar el evento submit ejecuta toda la logica
    */
@@ -68,22 +67,33 @@
       }
       /**@verifiqued si existe el id actulizo los datos existente del formulario*/
       if (id) {
-        await updateNote(id, {
-          id,
-          title: titleValue,
-          description: descriptionValue,
-          image: imageURL,
-        });
+        if (auth.currentUser?.uid) {
+          await updateNote(id, {
+            id,
+            title: titleValue,
+            description: descriptionValue,
+            image: imageURL,
+            userId: auth.currentUser.uid,
+          });
+        }
         /**@route navego nuevamente al blog despues de actulizar los datos*/
         await goto("/blog");
       } else {
         /**@save guardo en firestore los datos ingresado y limpio el formulario*/
-        await saveNotes(titleValue, descriptionValue, imageURL);
+        if (auth.currentUser?.uid) {
+          await saveNotes(
+            titleValue,
+            descriptionValue,
+            imageURL,
+            auth.currentUser?.uid
+          )
+        }
         Swal.fire(
           "Your note has been saved successfully !",
           "You clicked the button!",
           "success"
         );
+
         form.reset();
       }
 

@@ -26,8 +26,8 @@ export const getNote = (callback: (querySnapshot: QuerySnapshot) => void) =>
  * @param image imagen de la nota
  * @returns se devuelve la nota
  */
-export const saveNotes = (title: string, description: string, image: string) =>
-  addDoc(collection(firestore, "notes"), { title, description, image });
+export const saveNotes = (title: string, description: string, image: string, userId: string) =>
+  addDoc(collection(firestore, "notes"), { title, description, image, userId });
 
 /**
  *

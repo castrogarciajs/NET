@@ -4,4 +4,5 @@ export interface NOTE {
   title: string;
   description: string;
   image: string;
+  userId: string;
 }

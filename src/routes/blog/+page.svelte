@@ -20,8 +20,16 @@
     notes = [];
     querySnapshot.forEach((doc) => {
       /**@destructuring obtenemos los datos enviados a firestore*/
-      const { title, description, image } = doc.data();
-      notes.push({ id: doc.id, title, description, image });
+      const { title, description, image, userId } = doc.data();
+      if (auth.currentUser?.uid) {
+        notes.push({
+          id: doc.id,
+          title,
+          description,
+          image,
+          userId,
+        });
+      }
     });
   });
 </script>
@@ -30,6 +38,7 @@
 <div class="container-card">
   {#each notes as note}
     <Card
+      authIUser={note.userId}
       title={note.title}
       description={note.description}
       image={note.image}
