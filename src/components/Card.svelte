@@ -7,6 +7,7 @@
   export let description: string;
   export let image: string;
   export let id: string;
+  export let authIUser: string;
 
   let buttonDelete: HTMLButtonElement;
   let buttonUpdate: HTMLButtonElement;
@@ -24,32 +25,44 @@
 
     await goto(url);
   };
+  console.log(authIUser, auth.currentUser?.uid)
 </script>
 
-
-<div class="card">
-  <div class="card-header">
-    <img src={image} alt={title} class="card-image" />
+{#if auth.currentUser?.uid === authIUser}
+  <div class="card" data-iduser={authIUser}>
+    <div class="card-header">
+      <img src={image} alt={title} class="card-image" />
+    </div>
+    <div class="card-body">
+      <h2 class="card-title">{title}</h2>
+      <p class="card-description">{description}</p>
+    </div>
+    <div class="card-button">
+      <button
+        data-id={id}
+        class="card-button-delete"
+        on:click={handleClickDelete}
+        bind:this={buttonDelete}>Delete</button
+      >
+      <button
+        class="card-button-update"
+        data-id={id}
+        on:click={handleClickUpdate}
+        bind:this={buttonUpdate}>Update</button
+      >
+    </div>
   </div>
-  <div class="card-body">
-    <h2 class="card-title">{title}</h2>
-    <p class="card-description">{description}</p>
+{:else}
+  <div class="card">
+    <div class="card-header">
+      <img src={image} alt={title} class="card-image" />
+    </div>
+    <div class="card-body">
+      <h2 class="card-title">{title}</h2>
+      <p class="card-description">{description}</p>
+    </div>
   </div>
-  <div class="card-button">
-    <button
-      data-id={id}
-      class="card-button-delete"
-      on:click={handleClickDelete}
-      bind:this={buttonDelete}>Delete</button
-    >
-    <button
-      class="card-button-update"
-      data-id={id}
-      on:click={handleClickUpdate}
-      bind:this={buttonUpdate}>Update</button
-    >
-  </div>
-</div>
+{/if}
 
 <style>
   .card {
