@@ -86,13 +86,15 @@
             descriptionValue,
             imageURL,
             auth.currentUser?.uid
-          )
+          );
         }
-        Swal.fire(
-          "Your note has been saved successfully !",
-          "You clicked the button!",
-          "success"
-        );
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
 
         form.reset();
       }

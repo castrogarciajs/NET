@@ -2,6 +2,7 @@
   import { deleteNote } from "../firestore";
   import { goto } from "$app/navigation";
   import { auth } from "../firebase";
+  import Swal from "sweetalert2";
 
   export let title: string;
   export let description: string;
@@ -12,11 +13,24 @@
   let buttonDelete: HTMLButtonElement;
   let buttonUpdate: HTMLButtonElement;
 
-  const handleClickDelete = async () => {
-    const { id } = buttonDelete.dataset;
-    if (id) {
-      await deleteNote(id);
-    }
+  const handleClickDelete = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Deleted", "Your file has been deleted.", "success");
+        const { id } = buttonDelete.dataset;
+        if (id) {
+          await deleteNote(id);
+        }
+      }
+    });
   };
 
   const handleClickUpdate = async () => {
@@ -25,7 +39,6 @@
 
     await goto(url);
   };
-  console.log(authIUser, auth.currentUser?.uid)
 </script>
 
 {#if auth.currentUser?.uid === authIUser}
