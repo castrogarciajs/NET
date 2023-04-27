@@ -37,3 +37,4 @@ export const uploadFile = async (file: File) => {
   const image = await getDownloadURL(fileRef);
   return image;
 };
+// Im sorry Svelte
